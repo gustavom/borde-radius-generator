@@ -1,6 +1,9 @@
 (function(window, document) {
   "use strict";
   let $box = document.querySelector(".box");
+  let $textCssBox = document.querySelector(".text-css");
+  let $textCss = document.querySelector(".text-css .text-content");
+  let $clipBoardBtn = document.querySelector(".copybtn");
   let $topLeft = document.querySelector(".top-left");
   let $topRight = document.querySelector(".top-right");
   let $bottomLeft = document.querySelector(".bottom-left");
@@ -15,9 +18,21 @@
       "style",
       `border-top-left-radius: ${topLeft}px; border-top-right-radius: ${topRight}px; border-bottom-left-radius: ${bottomLeft}px; border-bottom-right-radius: ${bottomRight}px;`
     );
+    $textCss.textContent = ` border-top-left-radius: ${topLeft}px;\n border-top-right-radius: ${topRight}px;\r\n border-bottom-left-radius: ${bottomLeft}px;\r\n border-bottom-right-radius: ${bottomRight}px;`;
   }
 
-  $topLeft.addEventListener("change", function(e) {
+  function clipText() {
+    $textCss.select();
+    $textCss.setSelectionRange(0, 99999); /*For mobile devices*/
+    document.execCommand("copy");
+  }
+
+  $clipBoardBtn.addEventListener("click", function(e) {
+    e.preventDefault();
+    clipText();
+  });
+
+  $topLeft.addEventListener("keyup", function(e) {
     topLeftValue = e.target.value;
     setBorderRadius(
       topLeftValue,
@@ -26,7 +41,7 @@
       bottomRightValue
     );
   });
-  $topRight.addEventListener("change", function(e) {
+  $topRight.addEventListener("keyup", function(e) {
     topRightValue = e.target.value;
     setBorderRadius(
       topLeftValue,
@@ -35,7 +50,7 @@
       bottomRightValue
     );
   });
-  $bottomLeft.addEventListener("change", function(e) {
+  $bottomLeft.addEventListener("keyup", function(e) {
     bottomLeftValue = e.target.value;
     setBorderRadius(
       topLeftValue,
@@ -44,7 +59,7 @@
       bottomRightValue
     );
   });
-  $bottomRight.addEventListener("change", function(e) {
+  $bottomRight.addEventListener("keyup", function(e) {
     bottomRightValue = e.target.value;
     setBorderRadius(
       topLeftValue,
@@ -53,6 +68,4 @@
       bottomRightValue
     );
   });
-
-  // $bottomRight
 })(window, document);

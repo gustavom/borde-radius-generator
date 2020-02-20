@@ -2,15 +2,31 @@
 {% block content %}
 <main>
   <header><h1>CSS Border-Radius Generator</h1>
-    <p>Altere os valores dos campos e veja a alteração do layout em tempo real.</p>
+    <p>Mude os valores dos campos e veja a alteração do layout em tempo real.</p>
   </header>
   <div class="border-radius">
-  <div class="box">
-    <input type="text" class="field-input top-left">
-    <input type="text" class="field-input top-right">
-    <input type="text" class="field-input bottom-left">
-    <input type="text" class="field-input bottom-right">
-  </div>
+    <div class="box">
+      <input type="text" class="field-input top-left"  onkeypress="return observe_input_keypress(event)">
+      <input type="text" class="field-input top-right"  onkeypress="return observe_input_keypress(event)">
+      <input type="text" class="field-input bottom-left"  onkeypress="return observe_input_keypress(event)">
+      <input type="text" class="field-input bottom-right"  onkeypress="return observe_input_keypress(event)">
+    </div>
+    <div class="text-css">
+      <textarea class="text-content" readonly="readonly"></textarea>
+      <button class="copybtn">Copiar</button>
+    </div>
   </div>
 </main>
+
+<script>
+  function observe_input_keypress(e) {
+            var code = e.charCode ? e.charCode : e.keyCode;
+
+            if (! e.shiftKey && ! e.ctrlKey && ! e.altKey && ! e.metaKey && code != 46 && (code > 31 && (code < 48 || code > 57))) {
+              return false
+              };
+              document.querySelector('.text-css').setAttribute("style", "display:block;");
+            return true;
+        }
+</script>
 {% endblock %}
