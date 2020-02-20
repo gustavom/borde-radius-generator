@@ -1,4 +1,16 @@
 {% extends "layouts/default.njk" %}
 {% block content %}
-<h1>Home Page</h1>
+<main>
+  <header><h1>CSS Border-Radius Generator</h1>
+    <p>Altere os valores dos campos e veja a alteração do layout em tempo real.</p>
+  </header>
+  <div class="border-radius">
+  <div class="box">
+    <input type="text" class="field-input top-left">
+    <input type="text" class="field-input top-right">
+    <input type="text" class="field-input bottom-left">
+    <input type="text" class="field-input bottom-right">
+  </div>
+  </div>
+</main>
 {% endblock %}

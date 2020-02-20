@@ -10,7 +10,7 @@
     "js": "webpack",
     "js-watch": "npm run js -- --d --w",
     "scss-watch": "node-sass src/assets/scss -o ./public/assets/css --source-comments -w",
-    "watch": "concurrently -p \"[{name}]\" -n \"EXPRESS,CSS,JS,HTML\" -c \"cyan,magenta,yellow,orange\" \"npm run dev\"  \"npm run scss\" \"npm run js-watch\" ",
+    "watch": "concurrently -p \"[{name}]\" -n \"EXPRESS,CSS,JS,HTML\" -c \"cyan,magenta,yellow,orange\" \"npm run dev\"  \"npm run scss-watch\" \"npm run js-watch\" ",
     "js-build": "npm run js -- --d",
     "scss-build": "node-sass src/assets/scss -o ./public/assets/css --source-comments"
   },
