@@ -1,0 +1,32 @@
+{
+  "name": "border-radius-generator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "concurrently -p \"[{name}]\" -n \"EXPRESS,CSS,JS,HTML\" -c \"cyan,magenta,yellow,orange\"  \"npm run scss-build\" \"npm run js-build\"  \"node src/server.js\"",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon src/server.js",
+    "js": "webpack",
+    "js-watch": "npm run js -- --d --w",
+    "scss-watch": "node-sass src/assets/scss -o ./public/assets/css --source-comments -w",
+    "watch": "concurrently -p \"[{name}]\" -n \"EXPRESS,CSS,JS,HTML\" -c \"cyan,magenta,yellow,orange\" \"npm run dev\"  \"npm run scss\" \"npm run js-watch\" ",
+    "js-build": "npm run js -- --d",
+    "scss-build": "node-sass src/assets/scss -o ./public/assets/css --source-comments"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "node-sass": "^4.13.0",
+    "nunjucks": "^3.2.0",
+    "webpack": "^4.41.6",
+    "webpack-cli": "^3.3.11"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.26.7",
+    "concurrently": "^5.1.0",
+    "nodemon": "^2.0.2"
+  }
+}
