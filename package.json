@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npm run scss-build && npm run js-build && webpack",
+    "start": "npm run scss-build && npm run js-build && webpack --p",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon src/server.js",
     "js": "webpack",

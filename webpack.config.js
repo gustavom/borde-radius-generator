@@ -13,7 +13,7 @@ module.exports = {
       templates: [
         {
           from: "./src/views/pages/home.njk",
-          to: "index.html"
+          to: "../../index.html"
         }
       ]
     })
