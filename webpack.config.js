@@ -1,12 +1,26 @@
 const path = require("path");
-const NunjucksWebpackPlugin = require("nunjucks-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+
 module.exports = {
   entry: {
     main: "./src/assets/js/script.js"
   },
   output: {
-    path: path.resolve(__dirname, `./public/assets/js`),
+    path: path.resolve(__dirname, `./public/`),
     filename: "[name].js"
+  },
+  module: {
+    rules: [
+      {
+        test: /\.njk$/,
+        use: [
+          {
+            loader: "simple-nunjucks-loader",
+            options: {}
+          }
+        ]
+      }
+    ]
   },
   plugins: [
     new NunjucksWebpackPlugin({
