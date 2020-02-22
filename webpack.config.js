@@ -25,8 +25,8 @@ module.exports = {
     main: "./src/assets/js/script.js"
   },
   output: {
-    path: path.resolve(__dirname, `./public/`),
-    filename: "[name].js"
+    path: path.resolve(__dirname, `./public/assets/js`),
+    filename: "main.js"
   },
   module: {
     rules: [
