@@ -19,7 +19,7 @@
 </main>
 
 <script>
-  function observe_input_keypress(e) {
+   function observe_input_keypress(e) {
             var code = e.charCode ? e.charCode : e.keyCode;
 
             if (! e.shiftKey && ! e.ctrlKey && ! e.altKey && ! e.metaKey && code != 46 && (code > 31 && (code < 48 || code > 57))) {
