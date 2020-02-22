@@ -17,6 +17,7 @@ const HtmlWebpackPluginConfigGroups = new HtmlWebpackPlugin({
   myOptions: { foo: "bar" },
   inject: "body",
   template: "nunjucks-html-loader!./theme/templates/groups.njk",
+
   filename: "groups.html"
 });
 
@@ -25,8 +26,8 @@ module.exports = {
     main: "./src/assets/js/script.js"
   },
   output: {
-    path: path.resolve(__dirname, `./public/assets/js`),
-    filename: "main.js"
+    path: path.resolve(__dirname, `./public/`),
+    filename: "[name].js"
   },
   module: {
     rules: [
